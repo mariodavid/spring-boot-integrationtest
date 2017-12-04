@@ -15,13 +15,14 @@ import static org.mockito.BDDMockito.given;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("integrationtest")
-public class ServiceBTest {
+public class ServiceCTest {
+
 
     @MockBean
     ServiceA serviceA;
 
     @Autowired
-    ServiceB serviceB;
+    ServiceC serviceC;
 
     @Test
     public void mockedServiceA_willReturnWhatIsPredefined() throws Exception {
@@ -31,9 +32,8 @@ public class ServiceBTest {
         given(serviceA.add(5, 5)).willReturn(expectedSum);
 
 
-        int result = serviceB.add(5, 5);
+        int result = serviceC.add(5, 5);
 
         assertEquals(expectedSum, result);
     }
-
 }
